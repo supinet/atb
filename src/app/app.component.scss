@@ -1,0 +1,13 @@
+.app-nav {
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    padding: 20px;
+    ul {
+        li {
+            display: inline-block;
+            a {
+                padding-right: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-primary">Template Driven Form</h1>
+    </div>
+  </div>
+  <!-- # gera referencia no DOM-->
+  <form #formulario="ngForm" (ngSubmit)="enviar()">
+    <fieldset>
+      <div class="form-group">
+        <label>Nome</label>
+        <input type="text" class="form-control" [(ngModel)]="pessoa.nome" name="nome" required>
+      </div>
+
+      <div class="form-group">
+        <label>Sobrenome</label>
+        <input type="text" class="form-control" [(ngModel)]="pessoa.sobrenome" name="sobrenome" required>
+      </div>
+    </fieldset>
+
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" class="form-control" [(ngModel)]="pessoa.email" name="email" required>
+    </div>
+
+     <div class="form-group" [(ngModel)]="pessoa.idioma_id" name="idioma" required>
+      <label>Idioma</label>
+      <select class="form-control">
+        <option [ngValue]="undefined" selected>Selecione um idioma</option>
+        <option *ngFor="let idioma of idiomas; index as i" [value]="i + 1">{{idioma}}</option>
+      </select>
+    </div> 
+
+    <div class="text-right">
+      <button class="btn btn-success" type="button"(click)="limpar()">Limpar</button>
+      <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Enviar</button>
+    </div>
+  </form>
+</div>
+
+{{pessoa | json}}

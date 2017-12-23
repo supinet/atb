@@ -1,0 +1,42 @@
+<div class="container">
+  <!-- Título -->
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-primary">Posts</h1>
+    </div>
+  </div>
+  <!-- Formulário -->
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <label for="busca">Filtrar por nome:</label>
+          <input class="form-control" id="busca" [formControl]="busca" >
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Resultados -->
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Título</th>
+          <th scope="col">Conteúdo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts | posts: busca.value">
+          <th scope="row">{{post.id}}</th>
+          <td>{{post.title}}</td>
+          <td>{{post.body}}</td>
+        </tr>
+        <!-- <tr *ngIf="!result">
+          <td colspan="3" class="text-center">Nenhum item encontrado.</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+
+</div>
